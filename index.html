@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recetario Glassmorphism</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <h1>🍳 Recetario</h1>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Buscar recetas...">
+            <select id="categorySelect">
+                <option value="">Todas las categorías</option>
+            </select>
+        </div>
+        <div class="auth-buttons" id="authButtons">
+            <button class="glass-btn" onclick="showModal('login')">Login</button>
+            <button class="glass-btn" onclick="showModal('register')">Registro</button>
+        </div>
+        <div class="user-info" id="userInfo" style="display: none;">
+            <span id="username"></span>
+            <button class="glass-btn" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="container" id="recipeContainer"></main>
+
+    <!-- Botón Add Receta -->
+    <button class="add-recipe-btn glass-btn" id="addRecipeBtn" onclick="showModal('addRecipe')">+</button>
+
+    <!-- Modales -->
+    <div class="modal" id="modal">
+        <div class="modal-content glass-card">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modalBody"></div>
+        </div>
+    </div>
+    <button onclick="localStorage.clear(); location.reload()" 
+        style="position: fixed; bottom: 20px; left: 20px; z-index: 1000;"
+        class="glass-btn">
+    ♻️ Resetear Todo
+</button>
+<!-- Modal de Detalle -->
+<div class="modal" id="detailModal">
+    <div class="modal-content glass-card large-modal">
+        <span class="close" onclick="closeDetailModal()">&times;</span>
+        <div id="detailContent"></div>
+    </div>
+</div>
+
+    <!-- Toast -->
+    <div id="toast" class="toast glass-card"></div>
+
+    <script src="js/scripts.js"></script>
+</body>
+</html>
